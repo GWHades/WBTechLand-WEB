@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WB TechLand – Conectando Inovação ao Seu Mundo</title>
+  <meta name="description" content="Montagem de computadores a domicílio, formatação, limpeza e manutenção, e softwares de gestão. Atendimento WB TechLand: (19) 99296-1366 • wbtechland@outlook.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0b2a3c;        /* azul escuro de base */
+      --navy-2:#0f3a53;      /* azul secundário */
+      --gold:#e2aa2a;        /* dourado/mostarda */
+      --gold-2:#f1c353;      /* dourado claro */
+      --text:#eef2f6;        /* texto claro */
+      --muted:#a9b5c2;       /* texto secundário */
+      --card:#0e3348;        /* cartões */
+      --white:#ffffff;
+      --shadow: 0 10px 25px rgba(0,0,0,.25);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(180deg, var(--navy) 0%, #082234 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1160px, 92%); margin: 0 auto; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(11,42,60,.85);
+      backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .brand { display:flex; align-items:center; gap: 12px; font-weight: 800; letter-spacing:.2px; }
+    .logo-circle {
+      width: 44px; height: 44px; border-radius: 999px;
+      border: 3px solid var(--gold); display:grid; place-items:center;
+      background: var(--navy-2); box-shadow: inset 0 0 0 3px rgba(0,0,0,.15);
+      font-weight: 800; color: var(--gold);
+    }
+    nav ul { display:flex; gap: 18px; list-style:none; padding:0; margin:0; }
+    nav a { padding:10px 12px; border-radius:10px; color: var(--text); opacity:.9; font-weight:600; }
+    nav a:hover { background: rgba(255,255,255,.06); }
+    .cta-whats { display:inline-flex; align-items:center; gap:10px; background: var(--gold); color:#0b1d28; padding:10px 16px; border-radius:12px; font-weight:800; box-shadow: var(--shadow); }
+    .cta-whats:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+    /* Hero */
+    .hero { padding: 64px 0 48px; }
+    .hero-wrap { display:grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items:center; }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border:1px solid rgba(255,255,255,.15); border-radius:999px; color:var(--gold-2); font-weight:700; background: rgba(226,170,42,.08); }
+    .title { font-size: clamp(28px, 5vw, 54px); line-height:1.05; margin: 14px 0 12px; font-weight: 900; }
+    .subtitle { color: var(--muted); font-size: clamp(14px, 2.2vw, 18px); max-width: 52ch; }
+    .hero-actions { margin-top: 22px; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 18px; border-radius:14px; font-weight:800; border:1px solid rgba(255,255,255,.12); }
+    .btn.primary { background: linear-gradient(180deg, var(--gold) 0%, #d69b11 100%); color:#0a1722; border:none; }
+    .btn.secondary { background: rgba(255,255,255,.06); }
+    .hero-card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); border:1px solid rgba(255,255,255,.06); }
+    .specs { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-top: 10px; }
+    .spec { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.05); border-radius:12px; padding:10px 12px; font-size:14px; color:var(--muted) }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    .section-title { font-size: clamp(22px, 3.6vw, 36px); margin: 0 0 18px; font-weight: 900; }
+    .section-desc { color: var(--muted); margin-bottom: 28px; }
+
+    /* Services */
+    .services { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+    .card { background: var(--card); border-radius: var(--radius); padding: 18px; border:1px solid rgba(255,255,255,.06); box-shadow: var(--shadow); }
+    .card h3 { margin: 8px 0 6px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .icon { width: 28px; height: 28px; color: var(--gold); }
+
+    /* About */
+    .about { display:grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items:center; }
+    .about .bubble { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); padding: 18px; border-radius: var(--radius); }
+
+    /* Testimonials */
+    .testis { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .quote { background: var(--card); border-radius: var(--radius); padding: 18px; border:1px solid rgba(255,255,255,.06); position:relative; }
+    .quote:before { content:"“"; position:absolute; font-size:72px; color:rgba(255,255,255,.08); top:-20px; left:10px; }
+    .quote .who { margin-top: 10px; font-weight:700; color: var(--gold); }
+
+    /* Pricing */
+    .pricing { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .price { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+    .price h3 { margin: 0 0 6px; }
+    .price .value { font-size: 34px; font-weight: 900; color: var(--gold); }
+    .price ul { margin: 12px 0 18px; padding-left: 18px; color: var(--muted); }
+
+    /* Contact */
+    .contact-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    form { display:grid; gap: 12px; }
+    input, textarea { background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius: 12px; color: var(--text); padding: 12px 14px; font: inherit; }
+    textarea { min-height: 120px; }
+
+    /* Footer */
+    footer { padding: 36px 0; border-top:1px solid rgba(255,255,255,.06); color: var(--muted); }
+    .foot { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-wrap, .about, .contact-grid { grid-template-columns: 1fr; }
+      .services { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .pricing { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .testis { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav ul { display:none; }
+      .services { grid-template-columns: 1fr; }
+      .pricing { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "WB TechLand",
+    "url": "https://wbtechland.example",
+    "telephone": "+55-19-99296-1366",
+    "email": "wbtechland@outlook.com",
+    "description": "Montagem de computadores a domicílio, formatação, limpeza e manutenção, softwares de gestão.",
+    "areaServed": "Piracicaba e região",
+    "sameAs": ["https://instagram.com/wbtechland"]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo-circle">WB</div>
+        <div>
+          <div style="font-size:18px; line-height:1;">WB TECHLAND</div>
+          <small style="color:var(--gold-2); font-weight:700;">Conectando Inovação ao Seu Mundo</small>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a class="cta-whats" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Quero%20um%20atendimento%20para%20meu%20computador." target="_blank" rel="noopener">📞 WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="pill">💻 Assistência especializada em TI</span>
+        <h1 class="title">Conectando Inovação <br/> ao Seu Mundo</h1>
+        <p class="subtitle">Montagem de computadores a domicílio, formatação, limpeza e manutenção, além de softwares de gestão para otimizar o seu negócio.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar atendimento</a>
+          <a class="btn secondary" href="#servicos">Ver serviços</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img alt="PC com fans RGB" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" style="border-radius:12px; aspect-ratio: 16/10; object-fit:cover;"/>
+        <div class="specs">
+          <div class="spec">✔ Atendimento a domicílio</div>
+          <div class="spec">✔ Suporte remoto</div>
+          <div class="spec">✔ Garantia de serviço</div>
+          <div class="spec">✔ Prazo combinado</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section id="servicos">
+    <div class="container">
+      <h2 class="section-title">Serviços</h2>
+      <p class="section-desc">Profissionais, rápidos e com foco em resultado.</p>
+      <div class="services">
+        <div class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8"/><path d="M12 18v4"/></svg>
+          <h3>Montagem de Computadores a Domicílio</h3>
+          <p>Do zero ao pronto: escolha de peças, montagem, BIOS e testes.</p>
+        </div>
+        <div class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H3v16h18V4Z"/><path d="M9 4v16"/><path d="M3 10h6"/></svg>
+          <h3>Formatação & Otimização</h3>
+          <p>Backup, instalação limpa, drivers, atualizações e antivírus.</p>
+        </div>
+        <div class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M7 8l10 0"/><path d="M5 12h14"/><path d="M9 16h6"/></svg>
+          <h3>Limpeza & Manutenção</h3>
+          <p>Higienização, troca de pasta térmica e airflow ajustado.</p>
+        </div>
+        <div class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M6 21h12"/><path d="M12 17v4"/></svg>
+          <h3>Softwares de Gestão</h3>
+          <p>Implantação e treinamento de sistemas para sua empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container about">
+      <div>
+        <h2 class="section-title">Sobre nós</h2>
+        <p class="section-desc">A WB TechLand nasceu para simplificar a tecnologia na sua rotina. Atendemos residências e empresas com foco em qualidade, transparência e prazos cumpridos.</p>
+        <div class="bubble">⚡ <strong>Missão:</strong> conectar pessoas e negócios à tecnologia certa, com atendimento humano e eficiente.</div>
+        <div class="bubble">🛡️ <strong>Valores:</strong> confiança, segurança de dados e excelência técnica.</div>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1587202372775-98927b7453ac?q=80&w=1200&auto=format&fit=crop" alt="Técnico de TI" style="border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/3; object-fit: cover;"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos">
+    <div class="container">
+      <h2 class="section-title">Depoimentos</h2>
+      <div class="testis">
+        <div class="quote">“Serviço rápido e impecável! Meu PC voltou voando.”<div class="who">— João S.</div></div>
+        <div class="quote">“Excelente limpeza e organização dos cabos. Recomendo.”<div class="who">— Beatriz R.</div></div>
+        <div class="quote">“Implantaram o sistema de gestão e capacitaram a equipe.”<div class="who">— Marcos A.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Planos sugeridos</h2>
+      <p class="section-desc">Pacotes para facilitar seu pedido. Valores ilustrativos — ajuste conforme necessidade.</p>
+      <div class="pricing">
+        <div class="price">
+          <h3>Básico</h3>
+          <div class="value">R$ 149</div>
+          <ul>
+            <li>Formatação padrão</li>
+            <li>Instalação de drivers</li>
+            <li>Antivírus gratuito</li>
+          </ul>
+          <a class="btn primary" href="https://api.whatsapp.com/send?phone=5519992961366&text=Tenho%20interesse%20no%20Plano%20B%C3%A1sico">Quero este</a>
+        </div>
+        <div class="price" style="outline: 2px solid var(--gold);">
+          <h3>Completo</h3>
+          <div class="value">R$ 249</div>
+          <ul>
+            <li>Formatação + Otimização</li>
+            <li>Limpeza interna</li>
+            <li>Suporte remoto 7 dias</li>
+          </ul>
+          <a class="btn primary" href="https://api.whatsapp.com/send?phone=5519992961366&text=Tenho%20interesse%20no%20Plano%20Completo">Quero este</a>
+        </div>
+        <div class="price">
+          <h3>Empresarial</h3>
+          <div class="value">Sob consulta</div>
+          <ul>
+            <li>Softwares de gestão</li>
+            <li>Treinamento</li>
+            <li>Contrato de suporte</li>
+          </ul>
+          <a class="btn primary" href="https://api.whatsapp.com/send?phone=5519992961366&text=Quero%20or%C3%A7amento%20Empresarial">Solicitar orçamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container contact-grid">
+      <div>
+        <h2 class="section-title">Entre em contato</h2>
+        <p class="section-desc">Preferir WhatsApp? Clique no botão. Ou envie uma mensagem pelo formulário.</p>
+        <p><strong>Telefone:</strong> (19) 99296-1366<br/>
+           <strong>E-mail:</strong> <a href="mailto:wbtechland@outlook.com">wbtechland@outlook.com</a></p>
+        <a class="cta-whats" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Preciso%20de%20ajuda%20com%20meu%20computador." target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+      </div>
+      <div>
+        <!-- Dica: Para receber por e-mail sem backend, troque 'seuemail@exemplo.com' pelo seu em formsubmit.co -->
+        <form action="https://formsubmit.co/wbtechland@outlook.com" method="POST">
+          <input type="hidden" name="_subject" value="Novo contato pelo site – WB TechLand" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="nome" placeholder="Seu nome" required />
+          <input type="email" name="email" placeholder="Seu e-mail" required />
+          <input type="tel" name="telefone" placeholder="Seu telefone" />
+          <textarea name="mensagem" placeholder="Conte-nos como podemos ajudar" required></textarea>
+          <button class="btn primary" type="submit">Enviar mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div class="logo-circle">WB</div>
+        <div>
+          <strong>WB TechLand</strong><br/>
+          <small>Conectando Inovação ao Seu Mundo</small>
+        </div>
+      </div>
+      <div>© <span id="y"></span> WB TechLand • Todos os direitos reservados</div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a href="mailto:wbtechland@outlook.com" aria-label="E-mail">✉️</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+        <a href="https://api.whatsapp.com/send?phone=5519992961366" target="_blank" rel="noopener" aria-label="WhatsApp">🟢</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
