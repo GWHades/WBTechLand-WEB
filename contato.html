@@ -9,11 +9,43 @@
   <meta property="og:description" content="Conectando Inovação ao Seu Mundo">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/og-banner.png">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="WB TechLand">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <style>
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--gold);
+      cursor: pointer;
+      margin-left: 12px;
+    }
+    @media (max-width: 640px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(11,42,60,.98);
+        position: absolute;
+        top: 60px;
+        right: 8px;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,.18);
+        z-index: 99;
+      }
+      nav.open {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
 <header class="site-header">
@@ -25,15 +57,15 @@
         <small>Conectando Inovação ao Seu Mundo</small>
       </span>
     </a>
-    <nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false">&#9776;</button>
+    <nav id="main-nav">
       <a href="index.html">Início</a>
       <a href="servicos.html">Serviços</a>
-      <a href="portfolio.html">Portfólio</a>
       <a href="contato.html" class="btn">Contato</a>
     </nav>
   </div>
 </header>
-<a class="btn-whats" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB TechLand!%20Preciso%20de%20atendimento.">WhatsApp</a>
+<a class="btn-whats" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Preciso%20de%20atendimento.">WhatsApp</a>
 
 <main class="top-hero small">
   <div class="container">
@@ -45,9 +77,15 @@
 <section class="container pad grid2">
   <div>
     <h2>Fale conosco</h2>
-    <p><strong>Telefone:</strong> (19) 99296-1366<br>
-       <strong>E-mail:</strong> <a href="mailto:wbtechland@outlook.com">wbtechland@outlook.com</a></p>
-    <p><a class="btn primary" target="_blank" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Quero%20um%20atendimento.">Chamar no WhatsApp</a></p>
+    <p>
+      <strong>Telefone:</strong>
+      <a href="https://api.whatsapp.com/send?phone=5519992961366" target="_blank" rel="noopener noreferrer">(19) 99296-1366</a><br>
+      <strong>E-mail:</strong>
+      <a href="mailto:wbtechland@outlook.com">wbtechland@outlook.com</a>
+    </p>
+    <p>
+      <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Quero%20um%20atendimento.">Chamar no WhatsApp</a>
+    </p>
     <div class="faq">
       <h3>Perguntas frequentes</h3>
       <details open><summary>Vocês atendem a domicílio?</summary><p>Sim, em Piracicaba e região. Também fazemos suporte remoto quando possível.</p></details>
@@ -59,11 +97,18 @@
     <form action="https://formsubmit.co/wbtechland@outlook.com" method="POST" class="contact-form">
       <input type="hidden" name="_subject" value="Novo contato – WB TechLand">
       <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <input type="tel" name="telefone" placeholder="Seu telefone">
-      <textarea name="mensagem" placeholder="Como podemos ajudar?" required></textarea>
-      <button class="btn primary" type="submit">Enviar mensagem</button>
+      <input type="hidden" name="_next" value="https://wbtechland.netlify.app/obrigado.html">
+      <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem! Em breve retornaremos.">
+      <input type="text" name="_honey" style="display:none">
+      <label for="nome">Nome</label>
+      <input id="nome" type="text" name="nome" placeholder="Seu nome" required autocomplete="name">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" name="email" placeholder="Seu e-mail" required autocomplete="email">
+      <label for="telefone">Telefone</label>
+      <input id="telefone" type="tel" name="telefone" placeholder="Seu telefone" autocomplete="tel">
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?" required autocomplete="off"></textarea>
+      <button class="btn primary" type="submit" aria-label="Enviar mensagem">Enviar mensagem</button>
     </form>
   </div>
 </section>
@@ -80,11 +125,28 @@
     <div class="foot-right">
       <a href="mailto:wbtechland@outlook.com">✉️ wbtechland@outlook.com</a>
       <span>•</span>
-      <a href="https://api.whatsapp.com/send?phone=5519992961366" target="_blank">(19) 99296-1366</a>
+      <a href="https://api.whatsapp.com/send?phone=5519992961366" target="_blank" rel="noopener noreferrer">(19) 99296-1366</a>
     </div>
   </div>
   <div class="copyright">© <span id="y"></span> WB TechLand • Todos os direitos reservados</div>
 </footer>
 <script src="assets/js/main.js"></script>
+<script>
+  // Menu hambúrguer responsivo
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('main-nav');
+  menuToggle.addEventListener('click', function() {
+    const expanded = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', expanded);
+  });
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 640 && nav.classList.contains('open')) {
+      if (!nav.contains(e.target) && e.target !== menuToggle) {
+        nav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+      }
+    }
+  });
+</script>
 </body>
 </html>
