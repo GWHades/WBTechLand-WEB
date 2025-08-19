@@ -9,11 +9,44 @@
   <meta property="og:description" content="Conectando Inovação ao Seu Mundo">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/og-banner.png">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="WB TechLand">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <style>
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--gold);
+      cursor: pointer;
+      margin-left: 12px;
+    }
+    @media (max-width: 640px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(11,42,60,.98);
+        position: absolute;
+        top: 60px;
+        right: 8px;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,.18);
+        z-index: 99;
+      }
+      nav.open {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+    .icon[aria-hidden="true"] { font-size: 1.7em; }
+  </style>
 </head>
 <body>
 <header class="site-header">
@@ -25,14 +58,15 @@
         <small>Conectando Inovação ao Seu Mundo</small>
       </span>
     </a>
-    <nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false">&#9776;</button>
+    <nav id="main-nav">
       <a href="index.html">Início</a>
       <a href="servicos.html">Serviços</a>
       <a href="contato.html" class="btn">Contato</a>
     </nav>
   </div>
 </header>
-<a class="btn-whats" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Preciso%20de%20atendimento.">WhatsApp</a>
+<a class="btn-whats" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366&text=Ol%C3%A1%20WB%20TechLand!%20Preciso%20de%20atendimento.">WhatsApp</a>
 
 <main class="hero">
   <div class="container hero-wrap">
@@ -51,7 +85,7 @@
       </ul>
     </div>
     <div class="hero-media">
-      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" alt="Montagem de PC gamer em bancada técnica" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" alt="Montagem de PC gamer em bancada técnica, com iluminação e ferramentas" loading="lazy">
     </div>
   </div>
 </main>
@@ -59,17 +93,17 @@
 <section class="container pad">
   <h2 class="title-center">Serviços em destaque</h2>
   <div class="grid4">
-    <div class="card"><div class="icon">🧰</div><h3>Montagem a Domicílio</h3><p>Escolha de peças, montagem, BIOS e testes completos.</p></div>
-    <div class="card"><div class="icon">🧼</div><h3>Formatação & Otimização</h3><p>Instalação limpa, drivers, atualizações e antivírus.</p></div>
-    <div class="card"><div class="icon">🛠️</div><h3>Limpeza & Manutenção</h3><p>Higienização, pasta térmica e airflow ajustado.</p></div>
-    <div class="card"><div class="icon">📊</div><h3>Softwares de Gestão</h3><p>Implantação e treinamento de sistemas empresariais.</p></div>
+    <div class="card"><div class="icon" aria-hidden="true">🧰</div><h3>Montagem a Domicílio</h3><p>Escolha de peças, montagem, BIOS e testes completos.</p></div>
+    <div class="card"><div class="icon" aria-hidden="true">🧼</div><h3>Formatação & Otimização</h3><p>Instalação limpa, drivers, atualizações e antivírus.</p></div>
+    <div class="card"><div class="icon" aria-hidden="true">🛠️</div><h3>Limpeza & Manutenção</h3><p>Higienização, pasta térmica e airflow ajustado.</p></div>
+    <div class="card"><div class="icon" aria-hidden="true">📊</div><h3>Softwares de Gestão</h3><p>Implantação e treinamento de sistemas empresariais.</p></div>
   </div>
 </section>
 
 <section class="band">
   <div class="container band-wrap">
     <div><strong>Atendimento rápido</strong><br><small>Agende hoje mesmo no WhatsApp</small></div>
-    <a class="btn primary" target="_blank" href="https://api.whatsapp.com/send?phone=5519992961366&text=Quero%20um%20atendimento%20da%20WB%20TechLand.">Chamar no WhatsApp</a>
+    <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366&text=Quero%20um%20atendimento%20da%20WB%20TechLand.">Chamar no WhatsApp</a>
   </div>
 </section>
 
@@ -94,11 +128,28 @@
     <div class="foot-right">
       <a href="mailto:wbtechland@outlook.com">✉️ wbtechland@outlook.com</a>
       <span>•</span>
-      <a href="https://api.whatsapp.com/send?phone=5519992961366" target="_blank">(19) 99296-1366</a>
+      <a href="https://api.whatsapp.com/send?phone=5519992961366" target="_blank" rel="noopener noreferrer">(19) 99296-1366</a>
     </div>
   </div>
   <div class="copyright">© <span id="y"></span> WB TechLand • Todos os direitos reservados</div>
 </footer>
 <script src="assets/js/main.js"></script>
+<script>
+  // Menu hambúrguer responsivo
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('main-nav');
+  menuToggle.addEventListener('click', function() {
+    const expanded = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', expanded);
+  });
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 640 && nav.classList.contains('open')) {
+      if (!nav.contains(e.target) && e.target !== menuToggle) {
+        nav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+      }
+    }
+  });
+</script>
 </body>
 </html>
