@@ -3,20 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
   <title>WB TechLand – Arquitetura de Sistemas & Soluções de TI</title>
   <meta name="description" content="Desenvolvimento de sistemas sob medida, manutenção avançada de hardware e infraestrutura de redes corporativas.">
-  
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wbtechland.squareweb.app/">
   <meta property="og:title" content="WB TechLand – Arquitetura de Sistemas & TI">
   <meta property="og:description" content="Desenvolvemos sistemas à medida, otimizamos o seu hardware e estruturamos redes de alta performance.">
   <meta property="og:image" content="https://wbtechland.squareweb.app/assets/img/og-banner.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-  
   <style>
     .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--cyan); cursor: pointer; margin-left: 12px; }
     @media (max-width: 640px) { nav { display: none; } .menu-toggle { display: block; } }
@@ -25,7 +21,7 @@
 <body>
 <header class="site-header">
   <div class="container nav">
-    <a class="brand" href="index.html">
+    <a class="brand" href="/">
       <span class="logo">WB</span>
       <span class="brand-text">
         <strong>WB TECHLAND</strong>
@@ -34,13 +30,13 @@
     </a>
     <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
     <nav id="main-nav">
-      <a href="index.html">Início</a>
-      <a href="servicos.html">Soluções</a>
-      <a href="contato.html" class="btn">Fale Connosco</a>
+      <a href="/">Início</a>
+      <a href="/servicos">Soluções</a>
+      <a href="/contato" class="btn">Fale Connosco</a>
     </nav>
   </div>
 </header>
-<a class="btn-whats" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366">WhatsApp</a>
+<a class="btn-whats" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366" style="left: 30px !important; right: auto !important; bottom: 30px !important; z-index: 9999;">WhatsApp</a>
 
 <main class="hero">
   <div class="container hero-wrap">
@@ -49,8 +45,8 @@
       <h1>Autonomia Digital para o seu Negócio</h1>
       <p>Desenvolvemos sistemas à medida, otimizamos o seu hardware e estruturamos redes de alta performance para garantir que a sua operação nunca pare.</p>
       <div class="cta-row">
-        <a class="btn primary" href="contato.html">Diagnóstico Gratuito</a>
-        <a class="btn ghost" href="servicos.html">Explorar Soluções</a>
+        <a class="btn primary" href="/contato">Diagnóstico Gratuito</a>
+        <a class="btn ghost" href="/servicos">Explorar Soluções</a>
       </div>
       <ul class="trust">
         <li>✔️ Sistemas Proprietários</li>
@@ -113,7 +109,6 @@
 <script src="assets/js/main.js"></script>
 
 <div id="wb-bot-container" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: 'Inter', sans-serif;">
-  
   <div id="wb-chat-window" style="display: none; width: 350px; height: 500px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 16px; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); margin-bottom: 20px;">
       <div style="background: linear-gradient(90deg, #00D2FF, #008cb3); color: #020617; padding: 18px; font-weight: 800; display: flex; justify-content: space-between; align-items: center;">
           <div style="display: flex; align-items: center; gap: 10px;">
@@ -172,9 +167,8 @@ function sendTextInput() {
     const inputField = document.getElementById('chat-input');
     const text = inputField.value.trim();
     if (!text) return;
-    
-    inputField.value = ''; // limpa a barra
-    sendOption(text); // Reutiliza a função que envia a mensagem para o servidor
+    inputField.value = ''; 
+    sendOption(text); 
 }
 </script>
 </body>
