@@ -3,10 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <title>WB TechLand – Arquitetura de Sistemas & Soluções de TI</title>
-  <meta name="description" content="Desenvolvimento de sistemas sob medida, manutenção avançada de hardware e infraestrutura de redes corporativas. Tecnologia de ponta para o seu negócio.">
+  <meta name="description" content="Desenvolvimento de sistemas sob medida, manutenção avançada de hardware e infraestrutura de redes corporativas.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wbtechland.squareweb.app/">
+  <meta property="og:title" content="WB TechLand – Arquitetura de Sistemas & TI">
+  <meta property="og:description" content="Desenvolvemos sistemas à medida, otimizamos o seu hardware e estruturamos redes de alta performance.">
+  <meta property="og:image" content="https://wbtechland.squareweb.app/assets/img/og-banner.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  
   <style>
     .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--cyan); cursor: pointer; margin-left: 12px; }
     @media (max-width: 640px) { nav { display: none; } .menu-toggle { display: block; } }
@@ -117,10 +127,16 @@
               Olá! Sou a inteligência de atendimento da <strong>WB Techland</strong>. Qual área da sua empresa precisa de otimização hoje?
           </div>
       </div>
-      <div id="chat-options" style="padding: 15px; border-top: 1px solid rgba(0,210,255,0.1); display: flex; flex-wrap: wrap; gap: 8px; background: rgba(2, 6, 23, 0.8);">
-          <button onclick="sendOption('Sistemas')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='rgba(0,210,255,0.1)'" onmouseout="this.style.background='transparent'">💻 Sistemas</button>
-          <button onclick="sendOption('Hardware')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='rgba(0,210,255,0.1)'" onmouseout="this.style.background='transparent'">⚙️ Hardware</button>
-          <button onclick="sendOption('Redes')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='rgba(0,210,255,0.1)'" onmouseout="this.style.background='transparent'">🌐 Redes</button>
+      <div style="padding: 15px; border-top: 1px solid rgba(0,210,255,0.1); background: rgba(2, 6, 23, 0.8);">
+          <div id="chat-options" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+              <button onclick="sendOption('Sistemas')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600;">💻 Sistemas</button>
+              <button onclick="sendOption('Hardware')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600;">⚙️ Hardware</button>
+              <button onclick="sendOption('Redes')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600;">🌐 Redes</button>
+          </div>
+          <div style="display: flex; gap: 8px;">
+              <input type="text" id="chat-input" placeholder="Digite sua dúvida..." onkeypress="handleEnter(event)" style="flex-grow: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,210,255,0.4); border-radius: 20px; padding: 10px 14px; color: #fff; outline: none; font-family: inherit; font-size: 13px;">
+              <button onclick="sendTextInput()" style="background: #00D2FF; color: #020617; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-weight: bold; font-size: 16px;">➔</button>
+          </div>
       </div>
   </div>
   <button id="wb-bot-btn" onclick="toggleChat()" style="background: #00D2FF; width: 65px; height: 65px; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(0,210,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 28px; float: right; transition: transform 0.3s;">🤖</button>
@@ -134,10 +150,10 @@ function toggleChat() {
 
 function sendOption(option) {
     const msgArea = document.getElementById('chat-messages');
-    msgArea.innerHTML += `<div style="background: #00D2FF; color: #020617; font-weight: 600; padding: 12px 16px; border-radius: 16px 0px 16px 16px; align-self: flex-end; max-width: 85%;">${option}</div>`;
+    msgArea.innerHTML += `<div style="background: #00D2FF; color: #020617; font-weight: 600; padding: 12px 16px; border-radius: 16px 0px 16px 16px; align-self: flex-end; max-width: 85%; line-height: 1.5; margin-left: auto;">${option}</div>`;
     msgArea.scrollTop = msgArea.scrollHeight;
 
-    fetch('/bot-response?choice=' + option)
+    fetch('/bot-response?choice=' + encodeURIComponent(option))
         .then(res => res.json())
         .then(data => {
             setTimeout(() => {
@@ -146,6 +162,19 @@ function sendOption(option) {
             }, 600);
         })
         .catch(err => console.error("Erro ao contactar o bot:", err));
+}
+
+function handleEnter(event) {
+    if (event.key === "Enter") sendTextInput();
+}
+
+function sendTextInput() {
+    const inputField = document.getElementById('chat-input');
+    const text = inputField.value.trim();
+    if (!text) return;
+    
+    inputField.value = ''; // limpa a barra
+    sendOption(text); // Reutiliza a função que envia a mensagem para o servidor
 }
 </script>
 </body>
