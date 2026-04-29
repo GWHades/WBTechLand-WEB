@@ -1,105 +1,65 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WB TechLand – Arquitetura de Sistemas & Soluções de TI</title>
-  <meta name="description" content="Desenvolvimento de sistemas sob medida, manutenção avançada de hardware e infraestrutura de redes corporativas. Tecnologia de ponta para o seu negócio.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--cyan); cursor: pointer; margin-left: 12px; }
-    @media (max-width: 640px) { nav { display: none; } .menu-toggle { display: block; } }
-  </style>
-</head>
-<body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <span class="logo">WB</span>
-      <span class="brand-text">
-        <strong>WB TECHLAND</strong>
-        <small>Arquitetura de Sistemas & TI</small>
-      </span>
-    </a>
-    <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
-    <nav id="main-nav">
-      <a href="index.html">Início</a>
-      <a href="servicos.html">Soluções</a>
-      <a href="contato.html" class="btn">Fale Connosco</a>
-    </nav>
-  </div>
-</header>
-<a class="btn-whats" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366">WhatsApp</a>
-
-<main class="hero">
-  <div class="container hero-wrap">
-    <div class="hero-copy">
-      <span class="pill">Tecnologia de Ponta a Ponta</span>
-      <h1>Autonomia Digital para o seu Negócio</h1>
-      <p>Desenvolvemos sistemas à medida, otimizamos o seu hardware e estruturamos redes de alta performance para garantir que a sua operação nunca pare.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="contato.html">Diagnóstico Gratuito</a>
-        <a class="btn ghost" href="servicos.html">Explorar Soluções</a>
+<div id="wb-bot-container" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; font-family: 'Inter', sans-serif;">
+  
+  <div id="wb-chat-window" style="display: none; width: 350px; height: 500px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 16px; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); margin-bottom: 20px;">
+      
+      <div style="background: linear-gradient(90deg, #00D2FF, #008cb3); color: #020617; padding: 18px; font-weight: 800; display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 20px;">🤖</span>
+              <span>Assistente WB Techland</span>
+          </div>
+          <button onclick="toggleChat()" style="background: none; border: none; cursor: pointer; font-weight: 900; font-size: 18px; color: #020617;">✕</button>
       </div>
-      <ul class="trust">
-        <li>✔️ Sistemas Proprietários</li>
-        <li>✔️ Diagnóstico de Alta Precisão</li>
-        <li>✔️ Suporte Corporativo Especializado</li>
-      </ul>
-    </div>
-    <div class="hero-media">
-      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop" alt="Servidores e Infraestrutura de TI com luzes azuis" loading="lazy">
-    </div>
-  </div>
-</main>
 
-<section class="container pad">
-  <h2 class="title-center">O Nosso Ecossistema de Soluções</h2>
-  <div class="grid3">
-    <div class="card">
-      <div class="icon">💻</div>
-      <h3>Desenvolvimento de Sistemas</h3>
-      <p>Esqueça as licenças genéricas. Criamos ERPs, ferramentas próprias e automações que se adaptam exatamente ao seu fluxo de trabalho.</p>
-    </div>
-    <div class="card">
-      <div class="icon">⚙️</div>
-      <h3>Manutenção de Hardware</h3>
-      <p>Suporte técnico de elite. Desde o diagnóstico avançado de componentes até à montagem de máquinas de alto desempenho sob demanda.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🌐</div>
-      <h3>Infraestrutura e Redes</h3>
-      <p>Projetamos e mantemos ambientes de missão crítica. Servidores configurados para máxima segurança, estabilidade e redundância de dados.</p>
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="container band-wrap">
-    <div>
-      <strong style="font-size: 24px; color: #fff;">A sua tecnologia está a atrasar ou a acelerar a empresa?</strong><br>
-      <small style="color: var(--muted); font-size: 16px;">Fale com um dos nossos engenheiros e otimize a sua operação hoje mesmo.</small>
-    </div>
-    <a class="btn primary" target="_blank" href="https://api.whatsapp.com/send?phone=5519992961366">Iniciar Projeto</a>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="container foot">
-    <div class="foot-left">
-      <span class="logo">WB</span>
-      <div>
-        <strong style="color: #fff;">WB TechLand</strong><br>
-        <small style="color: var(--cyan);">Arquitetura de Sistemas & Soluções de TI</small>
+      <div id="chat-messages" style="flex-grow: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: #f8fafc;">
+          <div style="background: rgba(0,210,255,0.1); border: 1px solid rgba(0,210,255,0.2); padding: 12px 16px; border-radius: 0px 16px 16px 16px; align-self: flex-start; max-width: 85%; line-height: 1.5;">
+              Olá! Sou a inteligência de atendimento da <strong>WB Techland</strong>. Qual área da sua empresa precisa de otimização hoje?
+          </div>
       </div>
-    </div>
-    <div class="foot-right" style="color: var(--muted);">
-      wbtechland@outlook.com &nbsp; • &nbsp; (19) 99296-1366
-    </div>
+
+      <div id="chat-options" style="padding: 15px; border-top: 1px solid rgba(0,210,255,0.1); display: flex; flex-wrap: wrap; gap: 8px; background: rgba(2, 6, 23, 0.8);">
+          <button onclick="sendOption('Sistemas')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='rgba(0,210,255,0.1)'" onmouseout="this.style.background='transparent'">💻 Sistemas</button>
+          
+          <button onclick="sendOption('Hardware')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='rgba(0,210,255,0.1)'" onmouseout="this.style.background='transparent'">⚙️ Hardware</button>
+          
+          <button onclick="sendOption('Redes')" style="background: transparent; border: 1px solid #00D2FF; color: #00D2FF; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='rgba(0,210,255,0.1)'" onmouseout="this.style.background='transparent'">🌐 Redes</button>
+      </div>
   </div>
-  <div class="copyright">© <span id="y"></span> WB TechLand • Todos os direitos reservados.</div>
-</footer>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+
+  <button id="wb-bot-btn" onclick="toggleChat()" style="background: #00D2FF; width: 65px; height: 65px; border-radius: 50%; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(0,210,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 28px; float: right; transition: transform 0.3s;">🤖</button>
+
+</div>
+
+<script>
+function toggleChat() {
+    const chat = document.getElementById('wb-chat-window');
+    chat.style.display = chat.style.display === 'none' || chat.style.display === '' ? 'flex' : 'none';
+}
+
+function sendOption(option) {
+    const msgArea = document.getElementById('chat-messages');
+    
+    // Adiciona a mensagem do usuário na tela (Lado direito)
+    msgArea.innerHTML += `
+      <div style="background: #00D2FF; color: #020617; font-weight: 600; padding: 12px 16px; border-radius: 16px 0px 16px 16px; align-self: flex-end; max-width: 85%;">
+        ${option}
+      </div>`;
+    
+    // Desce a barra de rolagem
+    msgArea.scrollTop = msgArea.scrollHeight;
+
+    // Chama o servidor (SquareCloud) para pegar a resposta
+    fetch('/bot-response?choice=' + option)
+        .then(res => res.json())
+        .then(data => {
+            // Adiciona a resposta do Bot na tela (Lado esquerdo)
+            setTimeout(() => {
+              msgArea.innerHTML += `
+                <div style="background: rgba(0,210,255,0.1); border: 1px solid rgba(0,210,255,0.2); padding: 12px 16px; border-radius: 0px 16px 16px 16px; align-self: flex-start; max-width: 85%; line-height: 1.5;">
+                  ${data.reply}
+                </div>`;
+              msgArea.scrollTop = msgArea.scrollHeight;
+            }, 600); // Um pequeno delay de 600ms para parecer que o bot está "pensando"
+        })
+        .catch(err => console.error("Erro ao contactar o bot:", err));
+}
+</script>
