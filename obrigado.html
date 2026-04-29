@@ -3,16 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <title>Mensagem Enviada – WB TechLand</title>
   <meta name="description" content="A sua mensagem foi enviada com sucesso para a WB TechLand. Em breve entraremos em contacto.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wbtechland.squareweb.app/">
+  <meta property="og:title" content="WB TechLand – Arquitetura de Sistemas & TI">
+  <meta property="og:description" content="Desenvolvemos sistemas à medida, otimizamos o seu hardware e estruturamos redes de alta performance.">
+  <meta property="og:image" content="https://wbtechland.squareweb.app/assets/img/og-banner.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  
   <style>
     .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--cyan); cursor: pointer; margin-left: 12px; }
     @media (max-width: 640px) { nav { display: none; } .menu-toggle { display: block; } }
     
-    /* Estilo específico para a confirmação */
     .success-icon {
       font-size: 80px;
       color: var(--cyan);
@@ -78,7 +86,6 @@
 
 <script src="assets/js/main.js"></script>
 <script>
-  // Menu hambúrguer básico para a página de obrigado
   const menuToggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('main-nav');
   menuToggle.addEventListener('click', function() {
