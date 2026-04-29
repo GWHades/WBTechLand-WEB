@@ -32,8 +32,29 @@ nav a { padding: 10px 12px; border-radius: 10px; font-weight: 600; opacity: 0.9;
 nav a:hover { color: var(--cyan); }
 nav .btn { background: rgba(0, 210, 255, 0.1); color: var(--cyan); border: 1px solid var(--cyan); border-radius: 8px; }
 
-/* Botões */
-.btn-whats { position: fixed; right: 18px; bottom: 18px; background: #25D366; color: #fff; padding: 14px 20px; border-radius: 999px; font-weight: 800; box-shadow: var(--shadow); z-index: 50; }
+/* Botões Flutuantes (WhatsApp à esquerda) */
+.btn-whats { 
+  position: fixed; 
+  left: 30px; 
+  bottom: 30px; 
+  background: #25D366; 
+  color: #fff; 
+  padding: 14px 24px; 
+  border-radius: 999px; 
+  font-weight: 800; 
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
+  z-index: 999; 
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-whats:hover { 
+  transform: translateY(-3px); 
+  filter: brightness(1.1);
+}
+
+/* Botões Gerais */
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
 .btn.primary { background: var(--cyan); color: #020617; border: none; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3); }
 .btn.primary:hover { background: #33dbff; transform: translateY(-2px); }
