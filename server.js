@@ -20,7 +20,8 @@ app.get('/bot-response', (req, res) => {
     } else if (choice === 'Redes') {
         reply = "A sua operação não pode parar. Projetamos ambientes de rede estruturados, servidores seguros (Windows/Linux) e rotinas de backup. <br><br> <a href='/contato.html' style='color:#00D2FF; font-weight:bold;'>Vamos estruturar o seu servidor?</a>";
     } else {
-        reply = "Por favor, selecione uma das opções abaixo para eu entender como posso ajudar a sua empresa.";
+        // RESPOSTA PARA QUANDO O CLIENTE DIGITA UM TEXTO LIVRE:
+        reply = "Interessante! Para garantir que a nossa equipa de engenharia entenda exatamente a sua necessidade técnica sobre <strong>'" + choice + "'</strong>, por favor, <a href='https://api.whatsapp.com/send?phone=5519992961366' target='_blank' style='color:#00D2FF; font-weight:bold;'>chame-nos no WhatsApp</a> ou preencha o formulário na página de <a href='/contato.html' style='color:#00D2FF; font-weight:bold;'>Contato</a>.";
     }
 
     res.json({ reply: reply });
