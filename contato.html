@@ -3,45 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
   <title>Contato – WB TechLand</title>
   <meta name="description" content="Entre em contacto com a WB TechLand para projetos de software, infraestrutura de rede e manutenção de hardware.">
-  
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wbtechland.squareweb.app/">
   <meta property="og:title" content="WB TechLand – Arquitetura de Sistemas & TI">
   <meta property="og:description" content="Desenvolvemos sistemas à medida, otimizamos o seu hardware e estruturamos redes de alta performance.">
   <meta property="og:image" content="https://wbtechland.squareweb.app/assets/img/og-banner.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-  
   <style>
     .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--cyan); cursor: pointer; margin-left: 12px; }
     @media (max-width: 640px) { nav { display: none; } .menu-toggle { display: block; } }
-    
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; margin-top: 40px; }
     .contact-info-card { background: var(--card); border: 1px solid rgba(0, 210, 255, 0.1); padding: 30px; border-radius: 16px; height: fit-content; }
     .info-item { margin-bottom: 24px; }
     .info-item strong { display: block; color: var(--cyan); text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 5px; }
     .info-item a { font-size: 20px; font-weight: 600; transition: color 0.3s; }
     .info-item a:hover { color: var(--cyan); }
-
     .faq-section { margin-top: 40px; }
     .faq-section h3 { color: #fff; margin-bottom: 20px; }
     details { background: rgba(255,255,255,0.03); border: 1px solid rgba(0, 210, 255, 0.1); border-radius: 12px; padding: 15px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; }
     details:hover { border-color: var(--cyan); }
     summary { font-weight: 700; color: #fff; outline: none; }
     details p { margin-top: 10px; font-size: 15px; }
-
     @media (max-width: 980px) { .contact-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container nav">
-    <a class="brand" href="index.html">
+    <a class="brand" href="/">
       <span class="logo">WB</span>
       <span class="brand-text">
         <strong>WB TECHLAND</strong>
@@ -50,13 +43,13 @@
     </a>
     <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
     <nav id="main-nav">
-      <a href="index.html">Início</a>
-      <a href="servicos.html">Soluções</a>
-      <a href="contato.html" class="btn">Fale Conosco</a>
+      <a href="/">Início</a>
+      <a href="/servicos">Soluções</a>
+      <a href="/contato" class="btn">Fale Conosco</a>
     </nav>
   </div>
 </header>
-<a class="btn-whats" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366">WhatsApp</a>
+<a class="btn-whats" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5519992961366" style="left: 30px !important; right: auto !important; bottom: 30px !important; z-index: 9999;">WhatsApp</a>
 
 <main class="top-hero small">
   <div class="container">
@@ -98,7 +91,7 @@
       <form action="https://formsubmit.co/wbtechland@outlook.com" method="POST" class="contact-form">
         <input type="hidden" name="_subject" value="Nova Consulta Técnica – WB TechLand">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://wbtechland.netlify.app/obrigado.html">
+        <input type="hidden" name="_next" value="https://wbtechland.squareweb.app/obrigado">
         
         <div style="margin-bottom: 20px;">
           <label style="display:block; margin-bottom:8px; color: var(--muted); font-size: 14px;">Seu Nome</label>
