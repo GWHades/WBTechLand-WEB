@@ -3,51 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Obrigado – WB TechLand</title>
-  <meta name="description" content="Mensagem enviada com sucesso para WB TechLand. Em breve retornaremos!">
+  <title>Mensagem Enviada – WB TechLand</title>
+  <meta name="description" content="A sua mensagem foi enviada com sucesso para a WB TechLand. Em breve entraremos em contacto.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <style>
+    .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: var(--cyan); cursor: pointer; margin-left: 12px; }
+    @media (max-width: 640px) { nav { display: none; } .menu-toggle { display: block; } }
+    
+    /* Estilo específico para a confirmação */
+    .success-icon {
+      font-size: 80px;
+      color: var(--cyan);
+      margin-bottom: 24px;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <span class="logo">WB</span>
-        <span class="brand-text">
-          <strong>WB TECHLAND</strong>
-          <small>Conectando Inovação ao Seu Mundo</small>
-        </span>
-      </a>
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="contato.html" class="btn">Contato</a>
-      </nav>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="logo">WB</span>
+      <span class="brand-text">
+        <strong>WB TECHLAND</strong>
+        <small>Arquitetura de Sistemas & TI</small>
+      </span>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+    <nav id="main-nav">
+      <a href="index.html">Início</a>
+      <a href="servicos.html">Soluções</a>
+      <a href="contato.html" class="btn">Fale Connosco</a>
+    </nav>
+  </div>
+</header>
+
+<main class="top-hero small">
+  <div class="container" style="text-align:center; padding:100px 0;">
+    <div class="success-icon">✓</div>
+    <h1 style="margin-top: 0;">Mensagem Recebida</h1>
+    <p style="max-width: 600px; margin: 0 auto 40px;">
+      Agradecemos o seu contacto. A nossa equipa técnica irá analisar a sua solicitação e entraremos em contacto o mais breve possível para dar continuidade ao seu projeto.
+    </p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a class="btn primary" href="index.html">Voltar para o Início</a>
+      <a class="btn ghost" target="_blank" href="https://api.whatsapp.com/send?phone=5519992961366">Urgência via WhatsApp</a>
     </div>
-  </header>
-  <main class="top-hero small">
-    <div class="container" style="text-align:center; padding:48px 0;">
-      <h1>Obrigado!</h1>
-      <p>Sua mensagem foi enviada com sucesso.<br>
-      Em breve nossa equipe retornará o contato.</p>
-      <a class="btn primary" href="index.html">Voltar para a página inicial</a>
-    </div>
-  </main>
-  <footer class="site-footer">
-    <div class="container foot">
-      <div class="foot-left">
-        <span class="logo">WB</span>
-        <div>
-          <strong>WB TechLand</strong><br>
-          <small>Conectando Inovação ao Seu Mundo</small>
-        </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container foot">
+    <div class="foot-left">
+      <span class="logo">WB</span>
+      <div>
+        <strong style="color: #fff;">WB TechLand</strong><br>
+        <small style="color: var(--cyan);">Arquitetura de Sistemas & Soluções de TI</small>
       </div>
-      <div class="foot-right">
-        <a href="mailto:wbtechland@outlook.com">✉️ wbtechland@outlook.com</a>
-        <span>•</span>
-        <a href="https://api.whatsapp.com/send?phone=5519992961366" target="_blank" rel="noopener noreferrer">(19) 99296-1366</a>
-      </div>
     </div>
-    <div class="copyright">© <span id="y"></span> WB TechLand • Todos os direitos reservados</div>
-  </footer>
-  <script src="assets/js/main.js"></script>
+    <div class="foot-right" style="color: var(--muted); font-size: 14px;">
+      wbtechland@outlook.com &nbsp; • &nbsp; (19) 99296-1366
+    </div>
+  </div>
+  <div class="copyright">© <span id="y"></span> WB TechLand • Todos os direitos reservados.</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Menu hambúrguer básico para a página de obrigado
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('main-nav');
+  menuToggle.addEventListener('click', function() {
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    if(nav.style.display === 'flex') {
+      nav.style.flexDirection = 'column';
+      nav.style.position = 'absolute';
+      nav.style.top = '60px';
+      nav.style.right = '20px';
+      nav.style.background = 'var(--navy-2)';
+      nav.style.padding = '20px';
+      nav.style.borderRadius = '10px';
+      nav.style.border = '1px solid var(--cyan)';
+    }
+  });
+</script>
+</body>
+</html>
